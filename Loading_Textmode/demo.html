@@ -1,0 +1,47 @@
+<!--
+	Created by 黑と白の印記 on 15/03/11.
+-->
+
+<html>
+<head>
+	<meta charSet="utf-8">
+	<style type="text/css">
+		body{margin: 0px;padding: 0px;background-color:#666;font-family:"Comic Sans MS";line-height: 50px;text-align: center;}
+	</style>
+</head>
+<body>
+	<span id="loading">LOADING</span>
+	<script type="text/javascript">
+		var ldg = document.getElementById("loading")
+		loading(ldg,"#fff","#000",500,function(){console.log("一次")})
+
+		function loading(element,lightColor,darkColor,speed,callback){
+			if(!element&&(!element.innerText||!element.textContent))return
+				element = typeof element==="string"?document.getElementById(element):element
+
+			var arr_spanEles = new Array()
+
+			!function(arr_elementText){
+				element.innerText=element.textContent=""
+				for(var i=0;i<arr_elementText.length;i++){
+					var span = document.createElement("span")
+					element.innerText?span.innerText = arr_elementText[i]:span.textContent = arr_elementText[i]
+					element.appendChild(span)
+					arr_spanEles.push(span)
+				}
+			}((element.innerText||element.textContent).split(""))
+
+			var index = -1,length = arr_spanEles.length
+			var loadingTimer = setInterval(function(){
+				arr_spanEles[Math.max(index,0)].style.color = darkColor
+				if(index == length-1){
+					index = -1
+					callback()
+				}
+				++index
+				arr_spanEles[index].style.color = lightColor
+			},speed)
+		}
+	</script>
+</body>
+</html>
