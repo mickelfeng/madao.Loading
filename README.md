@@ -12,10 +12,13 @@ JS实现的加载块
 
 复制代码即可使用，无依赖，可以引用js文件
 
-######传入Ex：
+######Example：
 
 ```html
-<span>LOADING</span>
+<span id="loading">LOADING</span>
+<script type="text/javascript">
+	loading(document.getElementById("loading"),"#fff","#000",150,function(){})
+</script>
 ```
 
 ######使用方法
@@ -24,7 +27,7 @@ JS实现的加载块
 function loading(element,lightColor,darkColor,speed,callback)
 ```
 
-	element 		dom元素
+	element 		dom元素				必选参数
 	lightColor 		突出亮色
 	darkColor 		平常暗色
 	speed 			速度
