@@ -19,7 +19,7 @@ function loading(element,lightColor,darkColor,speed,callback)
 
 	element 		dom元素
 	lightColor 		突出亮色
-	darkColor 		平常亮色
+	darkColor 		平常暗色
 	speed 			速度
 	callback		回调（在文本跑马灯结束后）
 	
